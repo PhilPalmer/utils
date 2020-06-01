@@ -2,6 +2,7 @@
 
 """
 Get size of folder on FTP server in bytes
+from: https://stackoverflow.com/questions/22090001/get-folder-size-using-ftplib
 depends on:
 > python 3
 > ftplib
