@@ -13,8 +13,8 @@ import os
 from ftplib import FTP
 
 # Change
-ftp_server = 'ftp.ebi.ac.uk'
-ftp_dir = '/pub/databases/gwas/summary_statistics/'
+ftp_server = 'ftp.ncbi.nlm.nih.gov'
+ftp_dir = '/pub/clinvar/vcf_GRCh38/'
 
 # Don't change
 ftp = FTP(ftp_server)
@@ -35,4 +35,10 @@ def get_total_size(ftp_dir):
             size += ftp.size(path)
     return size
 
+def list_files(ftp_server, ftp_dir):
+    files = ftp.nlst(ftp_dir)
+    for f in files:
+        print(f"{ftp_server}/{f}")
+
+list_files(ftp_server, ftp_dir)
 print(get_total_size(ftp_dir))
